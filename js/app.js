@@ -23,20 +23,41 @@ var questionArray = ['Morgan\'s had a dog named \'Ramen\': Y/N?',
 var simpleAnswerArray = ['n', 'n', 'y', 'y', 'n'];
 
 var answerCount = 0;
+//BRANDON ANTHONY LAB04... 
+//CYCLE THRU BOTH ARRAYS, STARTING WITH QUESTION ARRAY
+//PASS ARRAYS INTO FUNCTIONS, INCREMENT THRU THEM INDIVIDUALLY
+//
+//
+//
 
-var testAnswer = '';
+function riddler(questions, answers) {
+  for (let y = 0; y < questions.length; y++) {
+    var testAnswer = prompt(questions[y]);
+    if (testAnswer.charAt(0).toLowerCase() === answers[y]) {
+      alert('Correct!');
+      answerCount++;
+    } else {
+      alert('That is incorrect.');
+    }
+  }
+}
+
+//var testAnswer = '';
 if(questionArray.length !== simpleAnswerArray.length){
   alert('MISMATCHED Q/A LENGTH');
 }
-for(let y = 0; y < questionArray.length; y++){
-  testAnswer = prompt(questionArray[y]);
-  if(testAnswer.charAt(0).toLowerCase() === simpleAnswerArray[y]){
-    alert('Correct!');
-    answerCount++;
-  }else{
-    alert('That is incorrect.');
-  }
-}
+riddler(questionArray, simpleAnswerArray);
+
+//LAB-04
+// for(let y = 0; y < questionArray.length; y++){
+//   testAnswer = prompt(questionArray[y]);
+//   if(testAnswer.charAt(0).toLowerCase() === simpleAnswerArray[y]){
+//     alert('Correct!');
+//     answerCount++;
+//   }else{
+//     alert('That is incorrect.');
+//   }
+// }//LAB-04
 
 //generates a random number to guess
 var numMin = 1;
