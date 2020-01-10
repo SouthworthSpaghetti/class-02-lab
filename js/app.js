@@ -13,12 +13,24 @@ var user = prompt('What is your name?');
 // custom greeting for coming to site
 alert('Hi ' + user + '! Welcome to the Morgan Quiz! I\'ve gota  few questions for you:');
 
+function compareAtLower(input, answer){
+  //takes in an 'input' string and 'answer' string, casts both to lower and
+  //returns if they match or not
+  if(input.toLowerCase() === answer.toLowerCase()){
+    return true;
+  }else{
+    return false;
+  }
+}
 
-var questionArray = ['Morgan\'s had a dog named \'Ramen\': Y/N?',
+
+var questionArray = [
+  'Morgan had a dog named \'Ramen\': Y/N?',
   'Morgan only attended 4 schools in Bellingham: Y/N',
   'Morgan lived in Japan: Y/N',
   'Morgan has worked in software before: Y/N',
-  'Morgan hates all things related to dragons and the dungeons they inhabit: Y/N'];
+  'Morgan hates all things related to dragons and the dungeons they inhabit: Y/N'
+];
 
 var simpleAnswerArray = ['n', 'n', 'y', 'y', 'n'];
 
@@ -40,14 +52,18 @@ for(let y = 0; y < questionArray.length; y++){
 
 //generates a random number to guess
 var numMin = 1;
-var numMax = 100;
+var numMax = 10;
 var targetNumber = Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
 var numberGuess = '';
 var guessNumberAttempts = 4;
 
 //questionCount++; //question 6
 for (let x = 0; x < guessNumberAttempts; x++){
-  numberGuess = prompt('I\' thinking of a number between ' + numMin + ' and ' + numMax + '. What is your guess?');
+  numberGuess = prompt('I\'m thinking of a number between ' + numMin + ' and ' + numMax + '. What is your guess?');
+
+  while(!Number(numberGuess)){
+    numberGuess = prompt('Please enter a NUMBER for your guess.');
+  }
   //this needs to check for only equal as the input may be caught as string
   // eslint-disable-next-line eqeqeq
   if(numberGuess == targetNumber){
